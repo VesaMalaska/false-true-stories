@@ -35,6 +35,160 @@ The initial seven-document framework package is now complete. The next milestone
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
+## How to use False True Stories
+
+You do not need to install an application or use a particular language model.
+
+You need:
+
+1. a capable language model that can read the framework documents;
+2. one place to keep your private Story Pack;
+3. the appropriate launcher prompt for the task you want to perform.
+
+The public repository contains the storytelling framework. Your World Seed and Story Runs should normally be kept in a separate private location.
+
+### 1. Choose the authoritative home for your Story Pack
+
+Choose one place where the latest version of your fictional world will live.
+
+Examples include:
+
+- a ChatGPT Project;
+- a Google Drive folder;
+- another language-model project or workspace;
+- a private Git repository;
+- a local folder.
+
+This location is the Story Pack’s **authoritative home**. Avoid maintaining several independent copies that may silently drift apart.
+
+A new Story Pack initially needs only:
+
+```text
+WORLD-SEED.md
+```
+
+When the story begins creating persistent history, it may grow into a structure such as:
+
+```text
+my-story-pack/
+├── WORLD-SEED.md
+└── runs/
+    └── run-001/
+        ├── STATE.md
+        └── HISTORY.md
+```
+
+The exact filenames and folders may vary. Their responsibilities are defined in [`docs/STORY-PACK-SPECIFICATION.md`](docs/STORY-PACK-SPECIFICATION.md).
+
+### 2. Make the framework available to the language model
+
+Do not assume that pasting the repository URL automatically gives a language model reliable access to every file.
+
+Depending on the service, you may:
+
+- upload the required Markdown files;
+- add them as project or workspace sources;
+- make them available through a connected storage service;
+- paste their contents into the session;
+- clone or download the repository into an environment the model can read.
+
+Ask the model to read the supplied files completely before it begins.
+
+### 3. Create a new World Seed
+
+Start a new creation session and provide these files:
+
+- [`README.md`](README.md);
+- [`docs/WORLD-SEED-GENERATION.md`](docs/WORLD-SEED-GENERATION.md);
+- [`templates/WORLD-SEED-TEMPLATE.md`](templates/WORLD-SEED-TEMPLATE.md);
+- [`prompts/CREATE-WORLD-SEED-LAUNCHER-PROMPT.md`](prompts/CREATE-WORLD-SEED-LAUNCHER-PROMPT.md).
+
+Then paste or submit the contents of `CREATE-WORLD-SEED-LAUNCHER-PROMPT.md` as the instruction that begins the session.
+
+The creation guide will ask only the questions needed to make the world playable. When the playability threshold is reached, it will generate a completed `WORLD-SEED.md`.
+
+Save that generated file in the authoritative home of your Story Pack.
+
+Do not add a private World Seed to this public framework repository unless you deliberately want to publish it as an example.
+
+### 4. Start a new Story Run
+
+A clean runtime session is recommended so that unfinished creation discussion does not become accidental story truth.
+
+Provide the runtime with:
+
+- [`README.md`](README.md);
+- [`docs/STORY-PACK-SPECIFICATION.md`](docs/STORY-PACK-SPECIFICATION.md);
+- [`docs/STORY-RUNTIME-PROTOCOL.md`](docs/STORY-RUNTIME-PROTOCOL.md);
+- [`prompts/START-STORY-LAUNCHER-PROMPT.md`](prompts/START-STORY-LAUNCHER-PROMPT.md);
+- your completed `WORLD-SEED.md`.
+
+Then paste or submit the contents of `START-STORY-LAUNCHER-PROMPT.md` and tell the model to begin a new Story Run.
+
+The runtime should enter the story directly. It should narrate freely inside established truth, offer choices only at meaningful moments, and preserve important consequences.
+
+### 5. Save the evolving run
+
+The story runtime must preserve information that future sessions need.
+
+If the language model can update files in the Story Pack’s authoritative home, allow it to maintain the selected run there.
+
+If it cannot write to that location, ask it for the continuation update required by the Story Runtime Protocol and save that update yourself. Do not assume that ordinary chat history is a permanent continuity system.
+
+The two main run responsibilities are:
+
+- **current state** — what is relevant and true now;
+- **history** — the meaningful sequence of events, choices, discoveries, and consequences.
+
+### 6. Resume an existing Story Run
+
+Start a new runtime session or reopen an environment that can access the same Story Pack.
+
+Provide:
+
+- the same framework and runtime files used to start the story;
+- the Story Pack’s `WORLD-SEED.md`;
+- the selected run’s latest state;
+- the selected run’s history;
+- any other authoritative material belonging to that run.
+
+Submit `START-STORY-LAUNCHER-PROMPT.md` and tell the model which run to continue.
+
+The runtime should reconstruct the latest situation and continue naturally without resetting the world or importing facts from another run.
+
+### ChatGPT Project example
+
+A practical setup is one ChatGPT Project for one private Story Pack:
+
+1. Create a new Project for the world.
+2. Add the required False True Stories framework files as project sources.
+3. Start a creation chat and use `CREATE-WORLD-SEED-LAUNCHER-PROMPT.md`.
+4. Save the completed `WORLD-SEED.md` back into the Project as an authoritative source.
+5. Start a clean story chat inside the Project and use `START-STORY-LAUNCHER-PROMPT.md`.
+6. Keep the latest run state and history available to later chats in that Project.
+
+ChatGPT Projects can use uploaded files and project instructions as shared context. Some accounts can also add supported connected-app sources, including Google Drive links. Available features may depend on the account or workspace. See OpenAI’s [Projects in ChatGPT](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) instructions for the current interface.
+
+Do not rely only on the model remembering an earlier chat. Ensure that the latest authoritative Story Pack material is available to the session that resumes the story.
+
+### Google Drive example
+
+Google Drive can serve as the authoritative home even when the language model itself runs elsewhere:
+
+1. Create a private folder for the Story Pack.
+2. Save `WORLD-SEED.md` in that folder.
+3. Create a separate subfolder for each Story Run when continuity files become necessary.
+4. In a language-model session, attach the required files from Drive or provide accessible Drive sources if the service supports them.
+5. After the session, save the updated state and history back into the same Drive folder.
+
+If the chosen language model cannot read Drive directly, download the files and attach them manually.
+
+If it can read but not write to Drive, copy its continuation update back into the authoritative files yourself.
+
+The same pattern works with other cloud drives, local folders, private repositories, and language-model project systems:
+
+> Make the framework readable, keep one authoritative Story Pack, launch the correct workflow, and preserve what the story makes true.
+
 ## What this repository contains
 
 This repository is the public False True Stories framework and starter kit.
