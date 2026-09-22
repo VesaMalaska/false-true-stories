@@ -1,9 +1,5 @@
 # False True Stories — Story Pack Specification
 
-## Status
-
-**Accepted**
-
 This specification defines the minimum portable container for one False True Stories world and its story runs.
 
 It describes what information a Story Pack must preserve. It does not require a particular language model, storage provider, application, or rigid directory structure.
