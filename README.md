@@ -25,11 +25,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a defined `WORLD-SEED.md` output;
 - a portable Story Pack Specification defining how worlds and separate Story Runs are preserved;
 - a Story Runtime Protocol defining how runs are narrated, continued, and preserved;
+- launcher prompts for both World Seed creation and story runtime;
 - the MIT License for open use, modification, and redistribution.
 
 The Story Runtime Protocol is now available. It defines how a language model begins and resumes runs, narrates freely inside established truth, presents meaningful choices, and preserves state and history.
 
-The next design milestone is the story-runtime launcher prompt, followed by concrete continuity templates.
+The complete World Seed creation and story-runtime flows are now available. The next design milestone is the first reusable Story Pack template.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -354,7 +355,7 @@ The runtime is responsible for:
 
 The runtime behavior is defined in [`docs/STORY-RUNTIME-PROTOCOL.md`](docs/STORY-RUNTIME-PROTOCOL.md).
 
-A dedicated launcher prompt for starting and resuming stories is the next planned addition.
+To begin or resume a Story Run, use [`prompts/START-STORY-LAUNCHER-PROMPT.md`](prompts/START-STORY-LAUNCHER-PROMPT.md).
 
 ## Storytelling style
 
@@ -422,17 +423,18 @@ false-true-stories/
 │   ├── STORY-PACK-SPECIFICATION.md
 │   └── STORY-RUNTIME-PROTOCOL.md
 ├── prompts/
-│   └── CREATE-WORLD-SEED-LAUNCHER-PROMPT.md
+│   ├── CREATE-WORLD-SEED-LAUNCHER-PROMPT.md
+│   └── START-STORY-LAUNCHER-PROMPT.md
 └── LICENSE
 ```
 
 The next planned addition is:
 
-- `prompts/START-STORY-LAUNCHER-PROMPT.md`
+- `templates/WORLD-SEED-TEMPLATE.md`
 
 After that, planned additions include:
 
-- reusable World Seed and continuity templates;
+- lightweight run-state and run-history templates;
 - a public example Story Pack;
 - lightweight provider-specific usage guides.
 
