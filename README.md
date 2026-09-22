@@ -24,11 +24,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a launcher prompt that activates that workflow in a capable language model;
 - a defined `WORLD-SEED.md` output;
 - a portable Story Pack Specification defining how worlds and separate Story Runs are preserved;
+- a Story Runtime Protocol defining how runs are narrated, continued, and preserved;
 - the MIT License for open use, modification, and redistribution.
 
-The next design milestone is the Story Runtime Protocol: the operational rules for beginning and resuming runs, narrating freely inside established truth, presenting meaningful choices, and updating state and history.
+The Story Runtime Protocol is now available. It defines how a language model begins and resumes runs, narrates freely inside established truth, presents meaningful choices, and preserves state and history.
 
-The runtime launcher and concrete continuity templates will follow after that behavior is defined.
+The next design milestone is the story-runtime launcher prompt, followed by concrete continuity templates.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -351,7 +352,9 @@ The runtime is responsible for:
 - keeping the experience focused on story rather than mechanics;
 - recording important new truths for future continuity.
 
-The complete Story Runtime Protocol and its launcher prompt are planned but not yet available.
+The runtime behavior is defined in [`docs/STORY-RUNTIME-PROTOCOL.md`](docs/STORY-RUNTIME-PROTOCOL.md).
+
+A dedicated launcher prompt for starting and resuming stories is the next planned addition.
 
 ## Storytelling style
 
@@ -416,7 +419,8 @@ false-true-stories/
 ├── README.md
 ├── docs/
 │   ├── WORLD-SEED-GENERATION.md
-│   └── STORY-PACK-SPECIFICATION.md
+│   ├── STORY-PACK-SPECIFICATION.md
+│   └── STORY-RUNTIME-PROTOCOL.md
 ├── prompts/
 │   └── CREATE-WORLD-SEED-LAUNCHER-PROMPT.md
 └── LICENSE
@@ -424,11 +428,10 @@ false-true-stories/
 
 The next planned addition is:
 
-- `docs/STORY-RUNTIME-PROTOCOL.md`
+- `prompts/START-STORY-LAUNCHER-PROMPT.md`
 
 After that, planned additions include:
 
-- a story-runtime launcher prompt;
 - reusable World Seed and continuity templates;
 - a public example Story Pack;
 - lightweight provider-specific usage guides.
