@@ -26,11 +26,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a portable Story Pack Specification defining how worlds and separate Story Runs are preserved;
 - a Story Runtime Protocol defining how runs are narrated, continued, and preserved;
 - launcher prompts for both World Seed creation and story runtime;
+- a reusable World Seed template;
 - the MIT License for open use, modification, and redistribution.
 
 The Story Runtime Protocol is now available. It defines how a language model begins and resumes runs, narrates freely inside established truth, presents meaningful choices, and preserves state and history.
 
-The complete World Seed creation and story-runtime flows are now available. The next design milestone is the first reusable Story Pack template.
+The initial seven-document framework package is now complete. The next milestone is end-to-end validation with an invented public example rather than additional speculative documentation.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -337,6 +338,8 @@ The reusable process is defined in [`docs/WORLD-SEED-GENERATION.md`](docs/WORLD-
 
 To begin a guided creation session, use [`prompts/CREATE-WORLD-SEED-LAUNCHER-PROMPT.md`](prompts/CREATE-WORLD-SEED-LAUNCHER-PROMPT.md).
 
+A reusable starting structure is available in [`templates/WORLD-SEED-TEMPLATE.md`](templates/WORLD-SEED-TEMPLATE.md).
+
 ## Story runtime
 
 Once a World Seed is ready, the creation phase ends and the story runtime takes over.
@@ -425,18 +428,14 @@ false-true-stories/
 ├── prompts/
 │   ├── CREATE-WORLD-SEED-LAUNCHER-PROMPT.md
 │   └── START-STORY-LAUNCHER-PROMPT.md
+├── templates/
+│   └── WORLD-SEED-TEMPLATE.md
 └── LICENSE
 ```
 
-The next planned addition is:
+The initial framework document set is now present.
 
-- `templates/WORLD-SEED-TEMPLATE.md`
-
-After that, planned additions include:
-
-- lightweight run-state and run-history templates;
-- a public example Story Pack;
-- lightweight provider-specific usage guides.
+The next step is to validate the complete flow with an invented public example, beginning with a single example World Seed. An example Story Run, continuity templates, or provider-specific guides should be added only when practical testing demonstrates a genuine need for them.
 
 Files should be added when their responsibilities are understood—not merely to make the repository appear complete.
 
