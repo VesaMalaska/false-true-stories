@@ -23,11 +23,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a provider-neutral World Seed Generation Workflow;
 - a launcher prompt that activates that workflow in a capable language model;
 - a defined `WORLD-SEED.md` output;
+- a portable Story Pack Specification defining how worlds and separate Story Runs are preserved;
 - the MIT License for open use, modification, and redistribution.
 
-The next design milestone is the portable Story Pack Specification: the small contract defining where a generated World Seed belongs, what information may grow around it, and how a world remains separate from individual story runs.
+The next design milestone is the Story Runtime Protocol: the operational rules for beginning and resuming runs, narrating freely inside established truth, presenting meaningful choices, and updating state and history.
 
-The Story Runtime Protocol, runtime launcher, and continuity templates will follow after that foundation is defined.
+The runtime launcher and concrete continuity templates will follow after that behavior is defined.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -414,7 +415,8 @@ The current repository structure is intentionally small:
 false-true-stories/
 ├── README.md
 ├── docs/
-│   └── WORLD-SEED-GENERATION.md
+│   ├── WORLD-SEED-GENERATION.md
+│   └── STORY-PACK-SPECIFICATION.md
 ├── prompts/
 │   └── CREATE-WORLD-SEED-LAUNCHER-PROMPT.md
 └── LICENSE
@@ -422,11 +424,10 @@ false-true-stories/
 
 The next planned addition is:
 
-- `docs/STORY-PACK-SPECIFICATION.md`
+- `docs/STORY-RUNTIME-PROTOCOL.md`
 
 After that, planned additions include:
 
-- a Story Runtime Protocol;
 - a story-runtime launcher prompt;
 - reusable World Seed and continuity templates;
 - a public example Story Pack;
