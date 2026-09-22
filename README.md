@@ -18,7 +18,16 @@ The goal is to make storytelling feel alive—and to make the fictional world re
 
 False True Stories is currently an early framework under active design.
 
-The world-seed creation workflow is the first usable part of the system. The Story Runtime Protocol, portable Story Pack specification, runtime launcher, and continuity templates are still being developed.
+The first usable part of the system—the complete World Seed creation flow—is now available. The repository currently provides:
+
+- a provider-neutral World Seed Generation Workflow;
+- a launcher prompt that activates that workflow in a capable language model;
+- a defined `WORLD-SEED.md` output;
+- the MIT License for open use, modification, and redistribution.
+
+The next design milestone is the portable Story Pack Specification: the small contract defining where a generated World Seed belongs, what information may grow around it, and how a world remains separate from individual story runs.
+
+The Story Runtime Protocol, runtime launcher, and continuity templates will follow after that foundation is defined.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -399,7 +408,7 @@ Ideally, it should simply feel as though the fictional world remembers.
 
 ## Repository direction
 
-The initial repository structure is intentionally small:
+The current repository structure is intentionally small:
 
 ```text
 false-true-stories/
@@ -411,9 +420,12 @@ false-true-stories/
 └── LICENSE
 ```
 
-Planned additions include:
+The next planned addition is:
 
-- a Story Pack specification;
+- `docs/STORY-PACK-SPECIFICATION.md`
+
+After that, planned additions include:
+
 - a Story Runtime Protocol;
 - a story-runtime launcher prompt;
 - reusable World Seed and continuity templates;
