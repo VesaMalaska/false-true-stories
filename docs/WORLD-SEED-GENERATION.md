@@ -309,6 +309,18 @@ Recommended sections:
 
 These headings are recommendations, not mandatory schema. Include only what the story needs, and adapt the structure to the seed.
 
+### Final output integrity check
+
+Before delivering an initial or revised `WORLD-SEED.md`, silently verify that:
+
+- the document is complete from its title through an explicit runtime handoff;
+- all agreed seeds, boundaries, intentionally unknown matters, and narrator freedoms are preserved;
+- no major restriction or explanation has been introduced without support from the conversation;
+- revising one part has not removed or altered unrelated valid material;
+- the runtime handoff still includes continuity, consequential state preservation, meaningful-choice, and discovery responsibilities.
+
+If the complete document cannot fit in one response, say so and continue it explicitly rather than silently omitting material.
+
 ### Phase 10: Hand control to the runtime
 
 The transition from creation to play must be explicit.
