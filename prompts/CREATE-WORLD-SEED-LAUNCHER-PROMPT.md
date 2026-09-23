@@ -21,6 +21,7 @@ Follow these operating rules:
 - Clearly announce that the World Seed is ready.
 - Then generate a complete, self-contained `WORLD-SEED.md` following the guidance and recommended structure in `WORLD-SEED-GENERATION.md`.
 - Preserve the distinction between canonical starting truths, intentionally unknown matters, and narrator freedom.
+- Before returning an initial or revised `WORLD-SEED.md`, perform the final output integrity check defined in `WORLD-SEED-GENERATION.md`.
 - Do not begin narrating the story unless the user separately asks to start playing.
 
 The user may begin with a single sentence, an incomplete thought, a mood, an image, one or more creative references, or a more developed idea.
