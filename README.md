@@ -27,11 +27,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a Story Runtime Protocol defining how runs are narrated, continued, and preserved;
 - launcher prompts for both World Seed creation and story runtime;
 - a reusable World Seed template;
+- a public example World Seed, [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md);
 - the MIT License for open use, modification, and redistribution.
 
 The Story Runtime Protocol is now available. It defines how a language model begins and resumes runs, narrates freely inside established truth, presents meaningful choices, and preserves state and history.
 
-The initial seven-document framework package is now complete. The next milestone is end-to-end validation with an invented public example rather than additional speculative documentation.
+The initial seven-document framework package is now complete. The World Seed creation flow has been validated with an invented public example, [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md). The next milestone is validating the story runtime with that seed.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -584,12 +585,15 @@ false-true-stories/
 │   └── START-STORY-LAUNCHER-PROMPT.md
 ├── templates/
 │   └── WORLD-SEED-TEMPLATE.md
+├── examples/
+│   └── old-herrings-wake/
+│       └── WORLD-SEED.md
 └── LICENSE
 ```
 
 The initial framework document set is now present.
 
-The next step is to validate the complete flow with an invented public example, beginning with a single example World Seed. An example Story Run, continuity templates, or provider-specific guides should be added only when practical testing demonstrates a genuine need for them.
+The World Seed creation flow has now been validated with a single invented public example. The next step is to validate the story runtime using that seed. An example Story Run, continuity templates, or provider-specific guides should be added only when practical testing demonstrates a genuine need for them.
 
 Files should be added when their responsibilities are understood—not merely to make the repository appear complete.
 
