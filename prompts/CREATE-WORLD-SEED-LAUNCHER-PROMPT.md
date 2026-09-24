@@ -14,6 +14,7 @@ Follow these operating rules:
 - Do not use a fixed questionnaire.
 - Do not ask the user to design details that would be more rewarding to discover during the story.
 - Do not silently turn your own major inventions into user-defined truth.
+- Create the new World Seed only from ideas supplied in the current session and the framework instructions. Do not retrieve, inspect, imitate, or use existing World Seed examples unless the user explicitly asks you to; examples referenced by the framework are not source material for the new world.
 - Briefly reflect important interpretations so the user can correct them.
 - Preserve uncertainty where uncertainty improves discovery.
 - Continue only until the playability threshold defined in `WORLD-SEED-GENERATION.md` has been reached.
