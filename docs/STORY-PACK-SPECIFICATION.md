@@ -280,7 +280,7 @@ A useful rule is:
 
 ## One authoritative home
 
-Every active Story Pack should have one clearly identified authoritative home.
+Every persistent active Story Pack must have one clearly identified authoritative home.
 
 Possible authoritative homes include:
 
@@ -296,6 +296,41 @@ Copies may be exported or attached elsewhere for use, but those copies should be
 Two independently edited copies must not silently act as equal sources of truth.
 
 When moving a Story Pack to a new environment, the creator should decide which copy becomes authoritative before continuing the story.
+
+## Environment definition
+
+Before persistent runtime begins, an environment definition must establish:
+
+- the Story Pack's single authoritative home;
+- the runtime environment and relevant workspace, when applicable;
+- how the runtime reads the authoritative material or an identified current snapshot;
+- actual write capability and the method by which updates reach the authoritative home;
+- who saves updates when direct writes are unavailable;
+- the selected Story Run and how its continuity is distinguished from other runs;
+- required framework and story inputs;
+- handling of narrator-only material when relevant.
+
+These are semantic requirements, not additional mandatory files. A setup can be defined in maintained workspace instructions, another identifiable configuration record, or an optional portable `ENVIRONMENT.md`.
+
+Environment configuration describes operations; it is not fictional canon and does not belong in the World Seed. Shared pack settings may be reused, but selected run identity and any differing access arrangements must remain unambiguous.
+
+A persistent pack may still begin with only `WORLD-SEED.md`. Do not create empty state or history files to satisfy setup. Their records are created when continuity needs them.
+
+The [Story Environment Setup workflow](STORY-ENVIRONMENT-SETUP.md) establishes this arrangement. The Story Runtime Protocol verifies readiness and executes persistence.
+
+### Deliberately temporary stories
+
+The user may explicitly select **temporary-conversation mode**. In that mode, a completed seed and distinct run identity are still required, but a durable authoritative home and persistence files are not.
+
+The available conversation context is the temporary continuity source. Continuity beyond that context is not guaranteed. Temporary mode must never be inferred from missing setup.
+
+To make a temporary run persistent, establish one authoritative home and save its recoverable state and history before continuing in persistent mode. Do not invent missing continuity to fill gaps.
+
+### Provider migration and authority transfer
+
+Changing the runtime provider does not transfer authority. Continue from the same authoritative Story Pack and selected run, with the latest saved continuity. Update the environment definition when access or saving arrangements change.
+
+Authority transfer is a separate explicit decision. Save pending updates first, identify the destination as the new authoritative home, and treat previous copies as snapshots. This specification does not define synchronization between competing copies.
 
 ## Provider neutrality
 
@@ -353,8 +388,8 @@ A basic Story Pack lifecycle is:
 
 1. Create a World Seed using the World Seed Generation Workflow.
 2. Save the generated `WORLD-SEED.md` in a separate Story Pack.
-3. Choose one authoritative home for that pack.
-4. Begin a new Story Run from the World Seed.
+3. Establish the story environment, including one authoritative home and a persistence method, or explicitly select temporary-conversation mode.
+4. Separately launch runtime and begin a distinct Story Run from the World Seed.
 5. Preserve important state, choices, and established truths as the run develops.
 6. Resume the run from its own state and history.
 7. Create a separate run when beginning again from the same seed.
@@ -367,12 +402,13 @@ A Story Pack is ready to begin its first run when:
 - a complete World Seed exists;
 - the World Seed is marked ready to play;
 - the runtime can access and understand it;
-- the authoritative Story Pack location is known;
+- the environment definition identifies authority, access, selected run, and a workable persistence method, or the user explicitly selected temporary-conversation mode;
 - no missing preference would force the runtime to guess something capable of ruining the intended experience.
 
 A Story Run is ready to resume when the runtime can identify:
 
 - which run is being continued;
+- the current environment definition and latest saved continuity, with pending updates resolved before persistent resumption;
 - its current situation;
 - its established truths;
 - the important history leading to that situation;
@@ -401,7 +437,7 @@ Those responsibilities either belong to other False True Stories documents or re
 
 This specification defines what the story-specific container must preserve.
 
-The future Story Runtime Protocol will define how a language model:
+The Story Runtime Protocol defines how a language model:
 
 - reads the Story Pack;
 - begins a new run;

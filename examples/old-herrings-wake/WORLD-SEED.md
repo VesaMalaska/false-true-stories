@@ -8,7 +8,7 @@ It does not contain events or consequences belonging to any particular Story Run
 
 ## Runtime readiness
 
-**Ready to play** — the World Seed has crossed the playability threshold.
+**Ready to play** — the World Seed has crossed the creative playability threshold. Environment and persistence readiness must be established separately before runtime launch.
 
 ## Core premise
 
@@ -163,4 +163,6 @@ The story runtime must:
 - preserve consequential events, discoveries, choices, relationship changes, and other state changes in the selected Story Run;
 - allow the remaining unknowns to be discovered through the story.
 
-Stop designing the world and begin the story.
+World Seed creation is complete. This document does not activate story runtime.
+
+Establish or verify the story environment, then separately launch the Story Runtime with its required materials and launcher prompt. The runtime instructions above apply only after its readiness gate passes.

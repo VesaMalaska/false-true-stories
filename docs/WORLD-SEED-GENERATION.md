@@ -171,7 +171,13 @@ The document does not need to label every sentence mechanically, but major creat
 
 Use terms such as “creation guide,” “language model,” “narrator,” and “story runtime.” Do not make the workflow depend on ChatGPT, Gemini, Claude, GitHub, Google Drive, or any other particular provider or storage system.
 
-### 10. Stop deliberately
+### 10. Preserve the protocol for every user
+
+Adapt the number of questions, language, and conversational style to the user. A child, a simple premise, or an enthusiastic request to begin may need a shorter conversation, but must still receive the playability assessment, readiness declaration, and complete World Seed.
+
+Do not skip essential experiential boundaries to reduce friction.
+
+### 11. Stop deliberately
 
 Once the playability threshold has been crossed, announce it clearly and stop asking design questions.
 
@@ -321,9 +327,24 @@ Before delivering an initial or revised `WORLD-SEED.md`, silently verify that:
 
 If the complete document cannot fit in one response, say so and continue it explicitly rather than silently omitting material.
 
-### Phase 10: Hand control to the runtime
+### Phase 10: Complete the handoff and stop
 
-The transition from creation to play must be explicit.
+The creation guide must finish in this order:
+
+1. declare **World Seed: Ready**;
+2. deliver the complete canonical `WORLD-SEED.md`, including its runtime handoff;
+3. briefly direct the user to Story Environment Setup and the separate runtime launcher;
+4. stop the creation response.
+
+The creation guide must not narrate an opening scene, simulate play, or offer the first runtime choice. Beginning story narration while acting as the creation guide is a protocol violation.
+
+A request such as “let’s begin” does not bypass seed completion or activate runtime automatically. Story narration requires a distinct runtime launch using the required runtime materials and launcher prompt, after operational readiness is established.
+
+A clean new runtime session is recommended. The same session may be reused only through explicit runtime activation; unfinished creation discussion must not become canon.
+
+A seed marked ready to play has crossed the creative playability threshold. That status does not certify storage access or persistence readiness. See [Story Environment Setup](STORY-ENVIRONMENT-SETUP.md).
+
+The following instructions apply to the separately activated runtime after its readiness gate passes:
 
 The runtime should:
 
@@ -346,6 +367,7 @@ The runtime should:
 - Filling every open space before it becomes relevant.
 - Continuing to ask questions after the world is playable.
 - Confusing the conceptual workflow with a mandatory folder or filename layout.
+- Silently turning creation into narration, including for children or simple premises.
 
 ## Example: successful conversational path
 
@@ -395,7 +417,7 @@ Ready to play
 [What the runtime may invent and the principles governing it.]
 
 ## Runtime handoff
-[A clear instruction to stop designing and begin the story.]
+[State that creation is complete. Direct the user to environment setup and a separate runtime launch. Runtime instructions apply only after its readiness gate passes.]
 ```
 
 ## Final instruction to the creation guide

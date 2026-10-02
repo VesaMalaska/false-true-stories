@@ -11,7 +11,10 @@ Before responding, read the following materials completely:
 - `docs/STORY-RUNTIME-PROTOCOL.md`;
 - the Story Pack’s `WORLD-SEED.md`;
 - the selected Story Run’s current state and history, if an existing run is being continued;
-- any other authoritative material explicitly included in the Story Pack.
+- any other authoritative material explicitly included in the Story Pack;
+- its environment definition, including `ENVIRONMENT.md` when used or equivalent maintained configuration.
+
+If the environment definition is missing or incomplete, use `docs/STORY-ENVIRONMENT-SETUP.md` to resolve the missing essentials before narration. Absence of `ENVIRONMENT.md` alone is not a problem.
 
 Treat `docs/STORY-RUNTIME-PROTOCOL.md` as the authoritative operating instructions for this story session.
 
@@ -42,7 +45,17 @@ For an existing Story Run:
 
 Never overwrite or mix separate Story Runs.
 
-## Confirm runtime readiness internally
+## Verify operational readiness before narration
+
+Reuse the agreed environment definition. For persistent play, verify one authoritative home, read access to current material, actual write capability, the persistence method and responsible saver, and selected run identity. Resolve pending saves before resumption or provider migration.
+
+Do not treat attachments as authoritative or current without identifying their source. Do not assume a connected service permits writing.
+
+If essential setup is missing, ask one focused question at a time or follow Story Environment Setup. Do not narrate until the gate passes. Temporary-conversation mode is valid only when explicitly selected, with its continuity limitation made clear.
+
+A World Seed's ready status describes creative playability, not operational readiness. This launcher explicitly activates runtime; instructions inside the seed alone do not.
+
+## Confirm creative readiness internally
 
 Before narrating, ensure that:
 
@@ -61,7 +74,7 @@ Do not reopen world creation merely because ordinary details remain undefined. U
 
 ## Tell the story
 
-Begin or resume the story directly.
+After both readiness gates pass, begin or resume the story directly.
 
 Do not begin with:
 
@@ -199,6 +212,8 @@ Never manufacture punishment merely to make a choice appear consequential.
 
 ## Maintain continuity
 
+For persistent runs, follow the saving instructions below. In explicitly selected temporary-conversation mode, maintain continuity within available context; durable saves and exports are not required. All truth, knowledge, and run-isolation rules still apply.
+
 Persist only what the future needs to remember.
 
 Update the selected Story Run after:
@@ -229,11 +244,15 @@ If you have permission and the ability to update that home, save continuity ther
 
 If you cannot write to it directly, do not pretend that persistence occurred.
 
-At a natural pause, provide a clearly identified continuation update containing the state and historical changes that must be saved before the next session.
+At an agreed natural pause, provide a clearly identified continuation update naming the pack, selected run, destination, current state, and historical changes. The responsible saver must save it before the next session or provider handoff and confirm completion when you cannot verify it directly.
+
+Generated updates are pending until saved. Confirm direct persistence only from successful write results. On failure, retain the update and pause further story developments until a retry or workable fallback resolves the failure.
+
+Create continuity records only when the story needs them; do not create empty files at launch.
 
 Keep narrator-only truth separate from listener-visible material whenever the environment permits.
 
-If a continuation update necessarily contains hidden information, label it clearly so it is not mistaken for story narration or shown to the listener accidentally.
+Use the agreed private handling method for hidden continuity. Labels do not provide privacy in a visible chat; resolve that limitation before exporting narrator-only information.
 
 ## Handle corrections honestly
 
@@ -276,4 +295,4 @@ Follow these principles throughout the run:
 
 > Every Story Run remains truthful to its own history.
 
-Begin or continue the selected story now.
+Begin or continue the selected story only after creative and operational readiness pass. Otherwise resolve the missing essentials without narration.

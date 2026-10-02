@@ -15,7 +15,7 @@ Replace the instructional text in brackets and remove any optional section that 
 - **Ready to play** — the World Seed has crossed the playability threshold.
 - **Not yet ready** — essential information is still missing.
 
-A completed World Seed should normally be marked **Ready to play** before the story runtime begins.]
+A completed World Seed should normally be marked **Ready to play** before the story runtime begins. This describes creative playability only; environment and persistence readiness must be established separately.]
 
 ## Core premise
 
@@ -200,4 +200,6 @@ The story runtime must:
 - preserve consequential events, discoveries, choices, and state changes in the selected Story Run;
 - allow the remaining unknowns to be discovered through the story.
 
-Stop designing the world and begin the story.
+World Seed creation is complete. This document does not activate story runtime.
+
+Establish or verify the story environment, then separately launch the Story Runtime with its required materials and launcher prompt. The runtime instructions above apply only after its readiness gate passes.

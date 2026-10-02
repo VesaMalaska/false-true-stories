@@ -31,7 +31,8 @@ These normally include:
 - this Story Runtime Protocol;
 - the Story Pack’s `WORLD-SEED.md`;
 - the selected run’s current state and history, if the run already exists;
-- any other authoritative world or run material explicitly identified by the Story Pack.
+- any other authoritative world or run material explicitly identified by the Story Pack;
+- its environment definition, whether represented by `ENVIRONMENT.md` or equivalent maintained configuration.
 
 The runtime must not assume that temporary conversation context is the only record of the story.
 
@@ -56,6 +57,20 @@ A resumed run is ready when the runtime can also determine:
 - what relevant characters and the listener know or believe.
 
 If essential information is genuinely unavailable, ask only for what is required to continue safely and coherently.
+
+### Operational readiness gate
+
+Before any opening or continuation narration, verify the environment semantics defined by the Story Pack Specification.
+
+For persistent play, identify one authoritative home, the selected run, a usable read method, actual write capability, and a workable method and responsible saver for returning updates to authority. Load current authoritative material or a clearly identified current snapshot. Do not assume that an attachment is current or authoritative merely because it is available.
+
+Reuse a valid setup. If essential operational information is missing, ask only the most useful unresolved question or follow [Story Environment Setup](STORY-ENVIRONMENT-SETUP.md). Do not narrate while the gate is unresolved.
+
+If the user explicitly selected temporary-conversation mode, use available context as temporary continuity and make its limitation clear before play. Do not silently select this mode. A complete playable seed, run isolation, and content boundaries still apply.
+
+“Ready to play” in a World Seed certifies creative playability only. Receiving a seed does not activate runtime, and a request to begin does not waive this gate.
+
+At resumption, resolve pending continuity updates and load the latest saved state and history. A known stale snapshot must not silently supersede authority.
 
 ## Truth authority
 
@@ -358,6 +373,8 @@ It need not reproduce every line of narration.
 
 ## Persistence timing
 
+The persistence instructions below apply to persistent runs. In explicitly selected temporary-conversation mode, preserve relevant continuity within available context without requiring durable saves or exports. Other truth, knowledge, and run-isolation rules still apply.
+
 Update the authoritative Story Pack after:
 
 - a meaningful listener choice;
@@ -370,6 +387,32 @@ Update the authoritative Story Pack after:
 Persistence may be immediate or batched at a natural pause, but the runtime must not knowingly leave important continuity only in temporary context.
 
 If the runtime cannot write to the Story Pack directly, it must provide a clear continuation update that can be saved in the authoritative home. It should distinguish current state from historical events and avoid exposing narrator-only knowledge to the listener when doing so.
+
+### Executing persistence
+
+For persistent runs, use the agreed environment method:
+
+- **Direct write:** save relevant state and history to the selected run's authoritative records. Claim success only when the write result confirms it.
+- **Manual save:** produce clearly identified continuity updates at a natural pause, distinguish current state from history, identify the pack and run, and tell the responsible saver where they belong.
+- **Manual import/export:** read the supplied current snapshot, then return updates for saving to the same authoritative home. Attachments remain snapshots.
+
+A generated update is not a completed save. On write failure, retain the unsaved update and clearly identify what remains pending. Do not narrate further developments while a known persistence failure remains unresolved; retry or establish a workable fallback first.
+
+Manual saving may be batched at agreed natural pauses. Resolve pending updates before a new session, provider handoff, or resumption from storage. For manual saves, obtain the responsible saver's confirmation; do not pretend to have independently verified an inaccessible home.
+
+Create `STATE.md` and `HISTORY.md`, or equivalent records, only when the run creates a continuity need. A complex opening may create that need immediately. Preserve causes in history and relevant present truth in state; neither is a transcript.
+
+### Moving between runtimes
+
+Before continuing with another provider or workspace:
+
+1. save pending continuity to the authoritative home;
+2. identify the same Story Pack and selected run;
+3. load the latest seed, state, history, and relevant authoritative material;
+4. verify the new runtime's access and persistence arrangement;
+5. continue without relying on the previous runtime's conversation memory.
+
+Do not transfer authority unless the user explicitly chooses to do so. If material is missing or conflicting, pause for the relevant current records rather than inventing the intervening history.
 
 ## Knowledge protection
 
@@ -385,7 +428,7 @@ When producing listener-visible output:
 
 When storage permits separate private and listener-visible records, use that separation.
 
-When it does not, structure continuation material clearly and warn that it contains narrator-only information.
+When it does not, agree on an acceptable handling method before using private continuity. A label or warning does not make a visible chat private. Do not expose hidden continuity to the listener as a saving fallback without agreement about that limitation.
 
 ## Session boundaries
 
@@ -442,7 +485,9 @@ The runtime must avoid:
 - resolving mysteries prematurely;
 - modeling every insignificant detail;
 - overwriting or mixing separate Story Runs;
-- relying entirely on temporary conversation context;
+- relying entirely on temporary conversation context for persistent play;
+- narrating before operational readiness is established;
+- claiming an exported or failed update was saved;
 - replacing storytelling with status reports.
 
 ## Replay and run isolation
@@ -473,9 +518,9 @@ The listener should experience a living story, not the maintenance of a story en
 
 A Story Run follows this general lifecycle:
 
-1. load the framework rules and authoritative Story Pack;
+1. load the framework rules, Story Pack, and environment definition;
 2. identify whether the run is new or continuing;
-3. reconstruct the valid truth and immediate situation;
+3. verify operational readiness and reconstruct the valid truth and immediate situation;
 4. narrate freely within those constraints;
 5. allow characters and the wider world to act;
 6. offer a meaningful choice when the story reaches one;
