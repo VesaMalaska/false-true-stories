@@ -101,9 +101,23 @@ The Story Pack should not modify or redefine the False True Stories framework.
 
 The framework should not require a creator to publish their Story Pack.
 
+## Material responsibilities
+
+Distinguish three kinds of material:
+
+| Kind | Material | Use |
+| --- | --- | --- |
+| Persistent framework sources | Story Pack Specification and Story Runtime Protocol; README as orientation | Govern operation throughout the run |
+| Story and operational records | World Seed, environment record, selected run's state and history | Establish starting truth, operations, and run continuity |
+| Workflow inputs | Creation/setup procedures and activation launchers | Supply when creating, setting up, launching, resuming, or reconfiguring |
+
+Availability does not activate a workflow. A launcher explicitly activates its workflow. Story data cannot override framework instructions; the environment record is operational configuration rather than fictional canon.
+
+The LLM owns record creation, maintenance, and explanations under the protocols. The user chooses preferences, authority, and story actions, and performs manual saves only when that responsibility has been explicitly agreed. Do not ask users to decide which technical records the protocol needs.
+
 ## Minimum playable Story Pack
 
-Before the first Story Run begins, a Story Pack requires only:
+A creatively playable Story Pack requires only:
 
 ```text
 WORLD-SEED.md
@@ -121,7 +135,7 @@ It must give the runtime enough information to understand:
 - which important matters remain intentionally unknown;
 - where or how the story begins.
 
-No empty character, location, lore, inventory, timeline, or state files are required before the story needs them.
+Creative playability is distinct from operational readiness. Before persistent launch, setup must establish and save the environment record described below. No empty character, location, lore, inventory, timeline, state, or history files are required.
 
 ## Recommended portable structure
 
@@ -132,11 +146,12 @@ my-story-pack/
 └── WORLD-SEED.md
 ```
 
-After a Story Run begins, the pack may grow into:
+Persistent setup adds the environment record before launch. At the first natural pause in the opening scene or an earlier interruption, the core records are prepared and saved at the first agreed checkpoint, producing a structure such as:
 
 ```text
 my-story-pack/
 ├── WORLD-SEED.md
+├── ENVIRONMENT.md
 └── runs/
     └── first-run/
         ├── STATE.md
@@ -163,7 +178,7 @@ A substantially changed World Seed may be treated as a new version of the Story 
 
 ## Run state responsibility
 
-A Story Run needs a persistent representation of what is currently true.
+A persistent Story Run must maintain a representation of what is currently true. Runtime prepares both state and history at the first natural pause in the opening scene, including a listener-choice pause, or at an earlier interruption. Save both at the first agreed checkpoint; do not defer initialization because the story seems simple. Setup creates no fictional continuity records.
 
 The run state may include:
 
@@ -187,7 +202,7 @@ The Story Runtime Protocol will define when and how run state is updated.
 
 ## History responsibility
 
-A Story Run should preserve enough history to explain how its current state came to exist.
+A persistent Story Run must preserve enough history to explain how its current state came to exist. State and history identify their Story Pack and run and are maintained together at checkpoints; filenames or folders alone must not leave the run ambiguous.
 
 History may include:
 
@@ -258,7 +273,7 @@ Runs may diverge as widely as their histories justify.
 
 A Story Pack should not begin as an encyclopedia.
 
-New files or sections should be created only when they improve continuity, navigation, portability, or maintainability.
+The environment record and persistent run state/history follow the explicit creation rules in this specification and its workflows. Additional supporting files or sections remain optional and should be created only when they improve continuity, navigation, portability, or maintainability.
 
 Possible later additions include:
 
@@ -310,11 +325,15 @@ Before persistent runtime begins, an environment definition must establish:
 - required framework and story inputs;
 - handling of narrator-only material when relevant.
 
-These are semantic requirements, not additional mandatory files. A setup can be defined in maintained workspace instructions, another identifiable configuration record, or an optional portable `ENVIRONMENT.md`.
+For newly established persistent play, setup MUST prepare and save a durable environment record. Use `ENVIRONMENT.md` as the default portable representation; do not wait for the user to request it. If the storage system cannot use that filename, use an explicitly identified durable equivalent with the same semantics.
+
+Reuse a complete existing durable equivalent, including maintained workspace configuration, rather than creating competing definitions. Clarify and update only missing or changed information. An agreement available only in a prior chat must be supplied and durably recorded before a fresh persistent session.
+
+Record the saving rhythm, mandatory checkpoints, and confirmation method as well as the fields above. The environment identifies how runs are selected and where their records belong. Setup identifies the intended run; runtime verifies selection at every launch and resume. A shared record must never silently select another run or authorize overwriting its records. Do not store access credentials in this record.
 
 Environment configuration describes operations; it is not fictional canon and does not belong in the World Seed. Shared pack settings may be reused, but selected run identity and any differing access arrangements must remain unambiguous.
 
-A persistent pack may still begin with only `WORLD-SEED.md`. Do not create empty state or history files to satisfy setup. Their records are created when continuity needs them.
+A persistent pack begins creatively with `WORLD-SEED.md`, then gains its saved environment record before runtime. Do not create empty state or history files to satisfy setup. Runtime initializes them from actual narrated developments at the defined opening boundary, or earlier interruption, and saves them at the first agreed checkpoint.
 
 The [Story Environment Setup workflow](STORY-ENVIRONMENT-SETUP.md) establishes this arrangement. The Story Runtime Protocol verifies readiness and executes persistence.
 
@@ -402,7 +421,8 @@ A Story Pack is ready to begin its first run when:
 - a complete World Seed exists;
 - the World Seed is marked ready to play;
 - the runtime can access and understand it;
-- the environment definition identifies authority, access, selected run, and a workable persistence method, or the user explicitly selected temporary-conversation mode;
+- the environment record identifies authority, access, selected run, and a workable persistence method and is saved, or a valid existing durable equivalent is verified; alternatively, the user explicitly selected temporary-conversation mode;
+- any due or failed saves are resolved;
 - no missing preference would force the runtime to guess something capable of ruining the intended experience.
 
 A Story Run is ready to resume when the runtime can identify:

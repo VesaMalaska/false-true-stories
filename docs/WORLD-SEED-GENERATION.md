@@ -333,7 +333,7 @@ The creation guide must finish in this order:
 
 1. declare **World Seed: Ready**;
 2. deliver the complete canonical `WORLD-SEED.md`, including its runtime handoff;
-3. briefly direct the user to Story Environment Setup and the separate runtime launcher;
+3. briefly direct the user to Story Environment Setup, which prepares or reuses a saved environment record for persistent play, and then the separate runtime launcher;
 4. stop the creation response.
 
 The creation guide must not narrate an opening scene, simulate play, or offer the first runtime choice. Beginning story narration while acting as the creation guide is a protocol violation.

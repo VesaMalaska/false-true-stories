@@ -37,6 +37,8 @@ The initial framework package is available and has been refined with an explicit
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
+The guided setup and continuity changes have a [documented scenario review](docs/GUIDED-SETUP-CONTINUITY-REVIEW.md). This is a static review; live model and provider behavior still requires runtime trials.
+
 ## How to use False True Stories
 
 You do not need to install an application or use a particular language model.
@@ -71,11 +73,12 @@ A new Story Pack initially needs only:
 WORLD-SEED.md
 ```
 
-When the story begins creating persistent history, it may grow into a structure such as:
+Persistent setup adds an environment record. At the opening scene’s first natural pause, runtime prepares state and history and saves them at the first agreed checkpoint, producing a structure such as:
 
 ```text
 my-story-pack/
 ├── WORLD-SEED.md
+├── ENVIRONMENT.md
 └── runs/
     └── run-001/
         ├── STATE.md
@@ -96,7 +99,17 @@ Depending on the service, you may:
 - paste their contents into the session;
 - clone or download the repository into an environment the model can read.
 
-Ask the model to read the supplied files completely before it begins.
+Ask the model to read the supplied files completely before it begins. Keeping sources available does not itself activate setup or storytelling.
+
+| Keep available | Supply when needed |
+| --- | --- |
+| Story Pack Specification and Story Runtime Protocol; README for orientation | Creation workflow and launcher when making a seed |
+| Your World Seed and saved environment record | Setup workflow and setup launcher when establishing or changing arrangements |
+| Selected run's latest saved state/history once created | Start launcher when beginning or resuming a story session |
+
+The seed and run records contain story truth; the environment record contains saving arrangements. They are not additional framework rules.
+
+**Already have a completed seed?** Skip seed creation. Supply the persistent sources and your seed, run setup with its workflow and launcher, save the environment record it produces, then separately activate the start launcher. You do not need the generation guide or template.
 
 ### 3. Create a new World Seed
 
@@ -125,11 +138,11 @@ Provide the README, Story Pack Specification, Story Runtime Protocol, setup work
 
 The guide reuses known information and asks only what remains necessary: where authority lives, how the runtime reads it, how updates are saved, who performs manual saves, which run is selected, and how private narrator material is handled when needed.
 
-A valid existing arrangement can satisfy setup immediately. Environment definition is required for persistent play, but `ENVIRONMENT.md` is only an optional portable representation. Maintained workspace instructions or equivalent configuration can serve the same purpose.
+For persistent play, the guide prepares `ENVIRONMENT.md` without expecting you to request or design it. This records where the story lives and how updates reach it. A complete existing durable equivalent can be reused; a storage limitation permits an identified equivalent representation. A previous chat agreement alone is insufficient for a new persistent session.
 
-A new run does not need empty state or history files. They are created only when the story needs continuity records.
+With manual saving, setup reports **Agreement complete — awaiting save** and tells the responsible saver where to put the record. **Story Environment: Ready** follows only after successful saving or saver confirmation, or verification of a valid existing durable record. Explicit temporary play requires its session agreement instead.
 
-Setup ends with the agreed arrangement and a separate runtime launch instruction. It does not tell the story.
+Setup creates no fictional state/history or empty placeholders. It explains how runtime will maintain them. Its handoff names the pack/run, environment record and saving status, material needed in the story session, and the separate activation instruction. It does not tell the story.
 
 ### 5. Start a new Story Run
 
@@ -142,7 +155,7 @@ Provide the runtime with:
 - [`docs/STORY-RUNTIME-PROTOCOL.md`](docs/STORY-RUNTIME-PROTOCOL.md);
 - [`prompts/START-STORY-LAUNCHER-PROMPT.md`](prompts/START-STORY-LAUNCHER-PROMPT.md);
 - your completed `WORLD-SEED.md`;
-- the agreed environment definition, including `ENVIRONMENT.md` if used;
+- your saved `ENVIRONMENT.md` or identified valid durable equivalent; for temporary play, the explicit session agreement;
 - `docs/STORY-ENVIRONMENT-SETUP.md` if the arrangement may need to be established or repaired.
 
 Then paste or submit the contents of `START-STORY-LAUNCHER-PROMPT.md` and tell the model to begin a new Story Run.
@@ -157,14 +170,18 @@ The story runtime must preserve information that future sessions need.
 
 If the language model can update files in the Story Pack’s authoritative home, allow it to maintain the selected run there.
 
-If it cannot write to that location, the runtime supplies the agreed continuation update and the responsible saver writes it back at a natural pause. Generated updates remain pending until saved. Confirm manual saving before a new session or provider handoff; the runtime must not claim it verified an inaccessible destination.
+You do not decide whether state/history files are needed. For persistent play, runtime prepares both at the first natural pause in the opening scene, including a listener-choice pause, or an earlier interruption. It saves them at the first agreed checkpoint and maintains them thereafter.
+
+If it cannot write directly, it provides complete replacement records by default, explains their destinations, and asks the designated saver to confirm saving. They remain **Continuity update pending** until all records are saved; only then may it report **Continuity saved**. At a due checkpoint, resolve saving before further developments. Always resolve pending updates before session close, a new session, or provider handoff. Manual confirmation does not mean the runtime independently inspected an inaccessible destination.
 
 Direct writes require successful write results. A failed saving method must be repaired or replaced before further story developments. Do not assume ordinary chat history is a permanent continuity system.
 
 The two main run responsibilities are:
 
-- **current state** — what is relevant and true now;
-- **history** — the meaningful sequence of events, choices, discoveries, and consequences.
+- **STATE.md** — the story’s current situation, maintained so we can continue consistently;
+- **HISTORY.md** — what happened in this run and the causes that still matter.
+
+Both identify their pack and run. They summarize continuity rather than copying the entire narration. A partial save remains incomplete; the runtime provides recovery instructions. Hidden narrator material follows the agreed private handling and must not leak through a visible saving attachment.
 
 ### 7. Resume or move an existing Story Run
 
@@ -177,7 +194,9 @@ Provide:
 - the selected run’s latest state;
 - the selected run’s history;
 - any other authoritative material belonging to that run;
-- its current environment definition.
+- its current saved environment record or valid durable equivalent.
+
+When access or saving arrangements change, supply the setup workflow and setup launcher again with these current records. Reconfiguration updates operations; it does not recreate the seed or reset the run.
 
 Submit `START-STORY-LAUNCHER-PROMPT.md` and tell the model which run to continue.
 
@@ -190,12 +209,12 @@ When changing providers, load the same authoritative Story Pack and selected run
 A practical setup is one ChatGPT Project for one private Story Pack:
 
 1. Create a new Project for the world.
-2. Add the required False True Stories framework files as project sources.
-3. Start a creation chat and use `CREATE-WORLD-SEED-LAUNCHER-PROMPT.md`.
+2. Keep the specification and runtime protocol available as Project sources, with the README for orientation. Supply workflow documents and launchers only when using them.
+3. If needed, start a creation chat with the generation workflow, template, and creation launcher. Otherwise use your ready-made seed.
 4. Save the completed `WORLD-SEED.md` back into the Project as an authoritative source.
-5. Run Story Environment Setup. Confirm how current sources are read and updated; if direct updates are unavailable, designate the person who replaces the authoritative records.
+5. Supply the setup workflow and launcher. Establish actual source access and saving responsibility; save its generated environment record as a source, or verify a valid existing durable equivalent. Confirm manual saving before readiness.
 6. Start a clean story chat inside the Project and use `START-STORY-LAUNCHER-PROMPT.md` after readiness passes.
-7. Keep the latest saved run state and history available to later chats. If another location is authoritative, Project uploads are snapshots.
+7. Save the state/history records runtime prepares at the opening pause and maintains at checkpoints. Keep the environment record and selected run’s latest records available to later chats; confirm which run to continue. If another location is authoritative, Project uploads are snapshots.
 
 A Project is a valid authoritative home only when its current records can be maintained and made available to later sessions. Establish the actual capabilities of the chosen environment rather than assuming access or direct writes from its name.
 
@@ -207,10 +226,10 @@ Google Drive can serve as the authoritative home even when the language model it
 
 1. Create a private folder for the Story Pack.
 2. Save `WORLD-SEED.md` in that folder.
-3. Create a separate subfolder for each Story Run when continuity files become necessary.
-4. Run Story Environment Setup to identify the runtime, actual access, selected run, saving responsibility, and private handling when needed.
+3. Supply the setup workflow and launcher to identify actual access, intended run, saving responsibility, and private handling. Save the resulting `ENVIRONMENT.md` in the folder and confirm completion if saving is manual.
+4. Use separate destinations for each run’s records; the LLM identifies them and creates the first pair from narrated developments at the opening pause. Empty folders and files are unnecessary.
 5. In a language-model session, attach the required current files from Drive or provide accessible Drive sources if supported, then separately launch runtime.
-6. At agreed pauses, save updated state and history back into the same Drive folder and resolve pending saves before resuming elsewhere.
+6. At due checkpoints, save the complete updated state/history in the selected run’s destinations and confirm completion before further developments or handoff. Drive attachments remain snapshots of the folder.
 
 If the chosen language model cannot read Drive directly, download the files and attach them manually.
 
@@ -531,7 +550,7 @@ A reusable starting structure is available in [`templates/WORLD-SEED-TEMPLATE.md
 
 After World Seed creation ends, [Story Environment Setup](docs/STORY-ENVIRONMENT-SETUP.md) establishes how the Story Pack is accessed, saved, and resumed. Activate it with [SETUP-STORY-ENVIRONMENT-LAUNCHER-PROMPT.md](prompts/SETUP-STORY-ENVIRONMENT-LAUNCHER-PROMPT.md).
 
-It defines operations rather than story truth. The arrangement can be reused while valid and updated when providers, access, or authority change.
+It produces or reuses a saved environment record defining operations rather than story truth. The arrangement can be reused while valid and updated when providers, access, or authority change. The guide handles record requirements and explains the user’s saving responsibilities.
 
 ## Story runtime
 

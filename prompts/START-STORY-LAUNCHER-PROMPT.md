@@ -12,9 +12,9 @@ Before responding, read the following materials completely:
 - the Story Pack’s `WORLD-SEED.md`;
 - the selected Story Run’s current state and history, if an existing run is being continued;
 - any other authoritative material explicitly included in the Story Pack;
-- its environment definition, including `ENVIRONMENT.md` when used or equivalent maintained configuration.
+- its saved `ENVIRONMENT.md` or explicitly identified valid durable equivalent; temporary mode instead uses its explicit session agreement.
 
-If the environment definition is missing or incomplete, use `docs/STORY-ENVIRONMENT-SETUP.md` to resolve the missing essentials before narration. Absence of `ENVIRONMENT.md` alone is not a problem.
+For persistent play, if the environment record is missing, incomplete, or awaiting save, obtain `docs/STORY-ENVIRONMENT-SETUP.md` and resolve the missing essentials before narration. A complete existing durable equivalent remains compatible; absence of the filename alone is not a problem. Do not rely solely on an old chat agreement or reopen valid setup.
 
 Treat `docs/STORY-RUNTIME-PROTOCOL.md` as the authoritative operating instructions for this story session.
 
@@ -34,7 +34,7 @@ For a new Story Run:
 - create or identify a distinct run;
 - begin from the canonical starting truth in `WORLD-SEED.md`;
 - do not import events, discoveries, or consequences from any previous run;
-- initialize only the continuity information needed to begin.
+- do not create empty continuity placeholders; initialize both core records from actual narrated developments at the first opening pause or earlier interruption.
 
 For an existing Story Run:
 
@@ -47,7 +47,7 @@ Never overwrite or mix separate Story Runs.
 
 ## Verify operational readiness before narration
 
-Reuse the agreed environment definition. For persistent play, verify one authoritative home, read access to current material, actual write capability, the persistence method and responsible saver, and selected run identity. Resolve pending saves before resumption or provider migration.
+Reuse the saved environment record or verified durable equivalent. For persistent play, verify one authoritative home, read access to current material, actual write capability, saving rhythm, persistence method and responsible saver, and explicitly selected pack/run. An unsaved generated environment record does not pass readiness. Resolve pending saves before resumption or provider migration. Shared configuration must not silently select or overwrite another run.
 
 Do not treat attachments as authoritative or current without identifying their source. Do not assume a connected service permits writing.
 
@@ -214,6 +214,10 @@ Never manufacture punishment merely to make a choice appear consequential.
 
 For persistent runs, follow the saving instructions below. In explicitly selected temporary-conversation mode, maintain continuity within available context; durable saves and exports are not required. All truth, knowledge, and run-isolation rules still apply.
 
+For a persistent new run, MUST prepare both `STATE.md` and `HISTORY.md`, or identifiable equivalents, at the first natural pause in the opening scene, including a listener-choice pause, or at an earlier user pause, session end, or handoff request. Save them at the first agreed checkpoint. Do not defer because the story is simple. Each record/export identifies the pack and run.
+
+Explain their purpose before the first manual saving action; never ask the user whether technical records are needed. Preserve relevant present truth in state and actual causal events in history. Optional supporting files still expand lazily.
+
 Persist only what the future needs to remember.
 
 Update the selected Story Run after:
@@ -244,11 +248,11 @@ If you have permission and the ability to update that home, save continuity ther
 
 If you cannot write to it directly, do not pretend that persistence occurred.
 
-At an agreed natural pause, provide a clearly identified continuation update naming the pack, selected run, destination, current state, and historical changes. The responsible saver must save it before the next session or provider handoff and confirm completion when you cannot verify it directly.
+At a due checkpoint, provide complete replacement state/history records by default, preserving relevant existing history and naming pack, run, and exact destinations. If delivery limits require an alternative, explain the exact application steps without losing content. The responsible saver must confirm all required saves before further developments. Keep these instructions brief and outside narrative prose.
 
-Generated updates are pending until saved. Confirm direct persistence only from successful write results. On failure, retain the update and pause further story developments until a retry or workable fallback resolves the failure.
+Report **Continuity update pending** until all checkpoint records are saved; use **Continuity saved** only from successful direct results or designated-saver confirmation. Do not claim independent inspection of an inaccessible destination. A partially saved pair remains pending. Retain intended updates in available context/export and pause further developments until retry or a workable fallback resolves the checkpoint.
 
-Create continuity records only when the story needs them; do not create empty files at launch.
+Resolve pending updates before session close, provider handoff, foreseeable context loss, or persistent resumption. Do not promise recovery of unsaved content after an unexpected interruption. Temporary-to-persistent conversion requires setup and saving recoverable continuity with gaps honestly identified.
 
 Keep narrator-only truth separate from listener-visible material whenever the environment permits.
 
