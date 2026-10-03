@@ -28,12 +28,12 @@ The first usable part of the system—the complete World Seed creation flow—is
 - a Story Environment Setup workflow establishing authority, access, and persistence before play;
 - launcher prompts for World Seed creation, environment setup, and story runtime;
 - a reusable World Seed template;
-- a public example World Seed, [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md);
+- two public example World Seeds: [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md) and [`Maximilian Toranaga`](examples/maximilian-toranaga/WORLD-SEED.md);
 - the MIT License for open use, modification, and redistribution.
 
 The Story Runtime Protocol is now available. It defines how a language model begins and resumes runs, narrates freely inside established truth, presents meaningful choices, and preserves state and history.
 
-The initial framework package is available and has been refined with an explicit creation handoff and operational readiness gate. The World Seed creation flow has been validated with an invented public example, [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md). The next milestone is validating the story runtime with that seed.
+The initial framework package is available and has been refined with an explicit creation handoff and operational readiness gate. The World Seed creation flow is demonstrated by two deliberately different public examples: [`Old Herring’s Wake`](examples/old-herrings-wake/WORLD-SEED.md), a compact atmosphere-driven maritime seed, and [`Maximilian Toranaga`](examples/maximilian-toranaga/WORLD-SEED.md), a richer espionage seed with more character, mystery, and continuity pressure. The next milestone is live validation of environment setup, runtime continuity, persistence, and resume behavior.
 
 The repository is public so that the framework can be examined, tested, improved, and eventually used with different language models and storage environments.
 
@@ -645,14 +645,16 @@ false-true-stories/
 ├── templates/
 │   └── WORLD-SEED-TEMPLATE.md
 ├── examples/
-│   └── old-herrings-wake/
+│   ├── old-herrings-wake/
+│   │   └── WORLD-SEED.md
+│   └── maximilian-toranaga/
 │       └── WORLD-SEED.md
 └── LICENSE
 ```
 
 The initial framework document set is now present.
 
-The World Seed creation flow has now been validated with a single invented public example. The next step is to validate the story runtime using that seed. An example Story Run, continuity templates, or provider-specific guides should be added only when practical testing demonstrates a genuine need for them.
+The World Seed creation flow is now represented by two invented public examples with different levels of complexity. The next step is live runtime validation of Story Environment Setup and persistent continuity, using the examples as practical test material. An example Story Run, continuity templates, or provider-specific guides should be added only when practical testing demonstrates a genuine need for them.
 
 Files should be added when their responsibilities are understood—not merely to make the repository appear complete.
 
