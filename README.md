@@ -262,6 +262,8 @@ This keeps the framework public and reusable without requiring the stories creat
 
 ## The core experience
 
+False True Stories is designed UX-first. Internal rigor exists to make the experience reliable, not to expose machinery to the listener. Optional preferences have documented defaults and must not block setup or storytelling merely because the user did not configure them.
+
 Traditional stories are linear. The listener follows events that have already been completely decided.
 
 False True Stories keeps the ease and immersion of listening while allowing the story to respond to the listener from time to time.
@@ -388,7 +390,7 @@ This principle keeps the machinery lightweight without sacrificing continuity.
 
 ## Meaningful choices
 
-Listener choices should be relatively infrequent and genuinely meaningful.
+Listener choices should be meaningful, but their frequency is a run-level experience setting rather than one fixed framework-wide cadence. The default is balanced interaction: the narrator preserves story momentum and yields control at meaningful moments. Story, player, and director modes can shift that balance without changing story canon.
 
 A choice may affect:
 
@@ -405,6 +407,10 @@ A choice may affect:
 The listener does not need to see every consequence immediately. Some consequences may surface much later.
 
 A choice is not merely a menu leading to another prewritten branch.
+
+Open hand-offs are the normal interaction style: when control is yielded, prefer asking what the protagonist does rather than constraining the listener to a manufactured A/B/C menu. Options remain useful when requested, when the in-world possibilities are genuinely finite, or when suggestions would help.
+
+At every interaction level, the listener may explicitly take the reins and state what the protagonist says, does, attempts, intends, or refuses. The narrator yields to that intent and continues from it.
 
 It changes the truth of the world.
 
@@ -552,6 +558,8 @@ After World Seed creation ends, [Story Environment Setup](docs/STORY-ENVIRONMENT
 
 It produces or reuses a saved environment record defining operations rather than story truth. The arrangement can be reused while valid and updated when providers, access, or authority change. The guide handles record requirements and explains the user’s saving responsibilities.
 
+Setup also resolves the selected run's experience profile. The profile is governed by [STORY-RUN-PROFILE-SPECIFICATION.md](docs/STORY-RUN-PROFILE-SPECIFICATION.md). If the user does not customize optional settings, the framework applies balanced interaction, cinematic pacing, and rich detail automatically. Technical configuration syntax is never required from the user.
+
 ## Story runtime
 
 Once a World Seed is complete and the environment is ready, separately launch the story runtime.
@@ -569,6 +577,8 @@ The runtime is responsible for:
 - recording important new truths for future continuity.
 
 The runtime behavior is defined in [`docs/STORY-RUNTIME-PROTOCOL.md`](docs/STORY-RUNTIME-PROTOCOL.md).
+
+Live storytelling uses the derived, disposable [Runtime Packet](docs/STORY-RUNTIME-PACKET-SPECIFICATION.md) so ordinary continuation can work from compact active context instead of repeatedly reprocessing the whole framework and Story Pack. Important new continuity may accumulate as small runtime deltas and be consolidated at natural checkpoints.
 
 To begin or resume a Story Run, use [`prompts/START-STORY-LAUNCHER-PROMPT.md`](prompts/START-STORY-LAUNCHER-PROMPT.md).
 

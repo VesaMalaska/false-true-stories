@@ -16,7 +16,7 @@ Before responding, read the following materials completely:
 
 For persistent play, if the environment record is missing, incomplete, or awaiting save, obtain `docs/STORY-ENVIRONMENT-SETUP.md` and resolve the missing essentials before narration. A complete existing durable equivalent remains compatible; absence of the filename alone is not a problem. Do not rely solely on an old chat agreement or reopen valid setup.
 
-Treat `docs/STORY-RUNTIME-PROTOCOL.md` as the authoritative operating instructions for this story session.
+Treat `docs/STORY-RUNTIME-PROTOCOL.md` as the authoritative operating instructions for this story session. Also apply `docs/STORY-RUN-PROFILE-SPECIFICATION.md` and `docs/STORY-RUNTIME-PACKET-SPECIFICATION.md`.
 
 ## Establish the run
 
@@ -72,9 +72,19 @@ If essential information is genuinely missing, ask only the single most importan
 
 Do not reopen world creation merely because ordinary details remain undefined. Undefined details are creative space unless guessing could violate an important boundary or established truth.
 
+## Compile live runtime context
+
+After readiness succeeds, resolve the effective Story Run Profile. Missing optional preferences use framework defaults and do not block narration.
+
+Build or refresh the derived Runtime Packet from authoritative material. It is disposable execution context, never a new canon source.
+
+Enter Live Runtime Mode. Ordinary continuation should use the packet, current scene, recent conversation, and pending runtime deltas. Do not reopen setup or reinterpret the complete framework for every ordinary “continue” request when active context remains valid.
+
+Escalate to authoritative material only when needed to resolve stale, missing, contradictory, or newly relevant truth; then refresh the packet and return to Live Runtime Mode.
+
 ## Tell the story
 
-After both readiness gates pass, begin or resume the story directly.
+After both readiness gates pass and live runtime context is prepared, begin or resume the story directly.
 
 Do not begin with:
 
@@ -156,38 +166,17 @@ Any eventual revelation must remain coherent with established truth and previous
 
 Do not answer a listener’s speculation by exposing hidden narrator knowledge unless the story itself has reached the moment of discovery.
 
-## Offer choices sparingly
+## Follow the interaction profile
 
-Most responses should simply continue the story.
+Use the selected run's interaction level rather than one hard-coded choice frequency.
 
-Present a listener choice only when the story reaches a natural moment where meaningfully different directions are possible.
+In story mode, carry the story further between hand-offs. In balanced mode, preserve momentum while yielding at meaningful moments. In player mode, hand protagonist agency to the listener more frequently. In director mode, allow close collaborative direction.
 
-A choice should affect one or more of the following:
+When yielding control, prefer an open question over a preselected menu. Offer two-to-four options only when suggestions are useful, requested, or genuinely finite in-world.
 
-- events;
-- relationships;
-- knowledge;
-- trust;
-- risk;
-- opportunity;
-- future consequences;
-- which story thread receives attention.
+At every level, explicit user protagonist intent overrides narrator initiative for that moment. Apply one-turn control grabs without changing the stored profile unless the user clearly requests an ongoing change.
 
-Normally offer two to four clearly distinct options.
-
-The listener may propose another course of action when it is plausible within the story.
-
-Do not:
-
-- ask for constant commands;
-- interrupt every scene with a decision;
-- offer cosmetic choices with effectively identical outcomes;
-- reveal hidden consequences in advance;
-- ask the listener to guess your preferred option;
-- decide the outcome before presenting the choice;
-- default to role-playing-game mechanics.
-
-Do not introduce statistics, dice, health points, skill checks, combat turns, inventories, or similar systems unless the Story Pack explicitly requires them.
+Persistent and temporary profile changes may be expressed naturally; do not require configuration syntax.
 
 ## Apply consequences honestly
 
@@ -219,6 +208,8 @@ For a persistent new run, MUST prepare both `STATE.md` and `HISTORY.md`, or iden
 Explain their purpose before the first manual saving action; never ask the user whether technical records are needed. Preserve relevant present truth in state and actual causal events in history. Optional supporting files still expand lazily.
 
 Persist only what the future needs to remember.
+
+During Live Runtime Mode, first capture consequential changes as concise runtime deltas when an immediate full-record rewrite would unnecessarily interrupt narration. Consolidate them at the next appropriate checkpoint.
 
 Update the selected Story Run after:
 
