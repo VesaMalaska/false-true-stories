@@ -581,6 +581,6 @@ The lifecycle is recursive. Each continuation begins from what the run has made 
 
 > **Characters act from their own reality, not from the narrator’s complete knowledge.**
 
-> **Choices should be rare enough to matter and consequential enough to remember.**
+> **Interaction frequency follows the Story Run Profile; every hand-off should still be meaningful enough to matter.**
 
 > **Every Story Run must remain truthful to its own history.**

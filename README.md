@@ -266,7 +266,7 @@ False True Stories is designed UX-first. Internal rigor exists to make the exper
 
 Traditional stories are linear. The listener follows events that have already been completely decided.
 
-False True Stories keeps the ease and immersion of listening while allowing the story to respond to the listener from time to time.
+False True Stories keeps the ease and immersion of listening while allowing the listener to shape the story at a frequency defined by the selected Story Run Profile.
 
 Most of the experience remains storytelling:
 
