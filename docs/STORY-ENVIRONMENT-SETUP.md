@@ -28,6 +28,8 @@ A seed's **Ready to play** status means creative playability. It does not establ
 
 Use known information first. Ask one natural, consequential question at a time; combine closely related matters only when easier for the user.
 
+User experience is the primary design constraint. Internal rigor exists to make storytelling reliable, not to expose configuration or framework machinery. Optional preferences MUST use documented defaults when unspecified and MUST NOT block setup merely because the user did not configure them.
+
 Do not require the user to fill in a fixed form, name technical integrations, choose whether technical files are needed, or repeat an already valid setup. A complete existing durable arrangement may need only a brief confirmation.
 
 Explain each new responsibility when it matters. The user chooses the experience and authority; the LLM determines required records and prepares them. For persistent play, briefly explain:
@@ -106,7 +108,19 @@ A separate section, file, label, or warning does not provide access control by i
 
 If private storage is unavailable, explain the practical limitation and agree on a suitable arrangement before proceeding. Do not invent predetermined secrets merely to justify private files.
 
-### 6. Record, save, and hand off the agreement
+### 6. Resolve the Story Run Profile
+
+Apply the [Story Run Profile Specification](STORY-RUN-PROFILE-SPECIFICATION.md).
+
+For a new run, use any preferences the user has already expressed. Do not require profile configuration. If no preference is known, apply the framework defaults: balanced interaction, cinematic pacing, rich detail, open hand-offs, and always-available protagonist override.
+
+If useful, offer customization once in plain language. Silence or indifference means use the defaults and continue.
+
+For an existing run, reuse its saved baseline profile when available. A missing optional profile in an older pack resolves to the framework defaults; it is not a reason to block continuation.
+
+Keep the profile as operational configuration, not fictional canon. Associate it with the selected run or a clearly defined default for new runs so changes do not leak between runs.
+
+### 7. Record, save, and hand off the agreement
 
 Return a concise summary covering the required environment semantics. Resolve essential unknowns before describing the setup as ready.
 
@@ -131,6 +145,7 @@ Temporary mode requires an explicit session agreement, playable seed, distinct r
 The final handoff must identify:
 
 - the agreed arrangement and selected Story Pack/run;
+- the effective Story Run Profile, using plain language rather than requiring configuration syntax;
 - the environment record or equivalent and its saving status;
 - persistent framework sources, completed seed, environment record, and selected-run continuity needed in the story session;
 - the next action: supply `START-STORY-LAUNCHER-PROMPT.md` and explicitly request a new run or continuation;
@@ -169,6 +184,8 @@ Required inputs: Framework specification and runtime protocol, completed seed,
 latest selected-run continuity, and relevant authoritative supporting material.
 Private material: Use the agreed separate narrator channel; do not export
 hidden continuity into listener-visible narration.
+Story Run Profile: interaction=balanced; pacing=cinematic; detail=rich;
+handoff=open; protagonist override=always.
 ```
 
 Do not put credentials or secrets needed for storage access in this record.

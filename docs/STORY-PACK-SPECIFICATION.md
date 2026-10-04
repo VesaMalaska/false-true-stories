@@ -107,11 +107,11 @@ Distinguish three kinds of material:
 
 | Kind | Material | Use |
 | --- | --- | --- |
-| Persistent framework sources | Story Pack Specification and Story Runtime Protocol; README as orientation | Govern operation throughout the run |
+| Persistent framework sources | Story Pack Specification, Story Runtime Protocol, Story Run Profile Specification, and Runtime Packet Specification; README as orientation | Govern operation throughout the run |
 | Story and operational records | World Seed, environment record, selected run's state and history | Establish starting truth, operations, and run continuity |
 | Workflow inputs | Creation/setup procedures and activation launchers | Supply when creating, setting up, launching, resuming, or reconfiguring |
 
-Availability does not activate a workflow. A launcher explicitly activates its workflow. Story data cannot override framework instructions; the environment record is operational configuration rather than fictional canon.
+Availability does not activate a workflow. A launcher explicitly activates its workflow. Story data cannot override framework instructions; the environment record and Story Run Profile are operational configuration rather than fictional canon.
 
 The LLM owns record creation, maintenance, and explanations under the protocols. The user chooses preferences, authority, and story actions, and performs manual saves only when that responsibility has been explicitly agreed. Do not ask users to decide which technical records the protocol needs.
 
@@ -175,6 +175,16 @@ Once a run has begun, its starting truth should not be silently rewritten. Other
 If a material correction is necessary, it must be made explicitly. Existing runs must not be retroactively reinterpreted without the creator’s knowledge.
 
 A substantially changed World Seed may be treated as a new version of the Story Pack for future runs.
+
+## Runtime execution projection
+
+Live narration may use a compact Runtime Packet derived from authoritative framework, environment/profile, World Seed, current state, history, and relevant supporting material.
+
+The Runtime Packet is not canon and is not a new authority. It may be discarded and rebuilt. Story Pack material should remain sufficient to recover the run without preserving a provider-specific packet.
+
+Material likely to affect near-term narration is runtime-essential and may be projected into the packet. Dormant lore and other valid but currently irrelevant material may remain reference/on-demand and be consulted only when needed.
+
+See [STORY-RUNTIME-PACKET-SPECIFICATION.md](STORY-RUNTIME-PACKET-SPECIFICATION.md).
 
 ## Run state responsibility
 

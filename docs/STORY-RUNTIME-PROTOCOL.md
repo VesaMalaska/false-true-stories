@@ -160,6 +160,18 @@ When resuming, the runtime must:
 
 A brief organic reminder may be included when needed for comprehension. It should sound like storytelling, not database output.
 
+## UX-first runtime
+
+User experience is the primary design constraint of False True Stories. Framework rigor exists to make the experience reliable, not to expose complexity to the listener.
+
+Optional preferences use the documented defaults from [STORY-RUN-PROFILE-SPECIFICATION.md](STORY-RUN-PROFILE-SPECIFICATION.md). Missing optional preferences are not a reason to block narration.
+
+Once launch preparation has resolved the selected run and built or refreshed the Runtime Packet, enter Live Runtime Mode as defined by [STORY-RUNTIME-PACKET-SPECIFICATION.md](STORY-RUNTIME-PACKET-SPECIFICATION.md).
+
+During ordinary continuation, operate primarily from the Runtime Packet, current scene, recent conversation, and pending runtime deltas. Do not repeatedly perform setup-time validation or reinterpret the complete framework when the packet remains valid. Consult authoritative material only when active context is genuinely insufficient or contradictory, then return to lightweight live narration.
+
+Responsiveness is part of the listening experience even though provider response time cannot be guaranteed.
+
 ## Story-first narration
 
 The normal runtime output is story.
@@ -248,33 +260,26 @@ The runtime must not:
 
 A revelation should fit what was already true, even when it changes how earlier events are understood.
 
-## Listener choices
+## Interaction and protagonist agency
 
-Most runtime turns should continue the story without asking the listener to manage every action.
+Follow the selected run's interaction level from [STORY-RUN-PROFILE-SPECIFICATION.md](STORY-RUN-PROFILE-SPECIFICATION.md).
 
-Offer a choice only when:
+- **story:** narrator normally carries events forward and yields mainly at major character-defining decisions;
+- **balanced:** narrator maintains momentum while yielding at meaningful moments; this is the default;
+- **player:** narrator yields protagonist actions, dialogue, investigation, and tactics more frequently;
+- **director:** listener may direct the protagonist and broader scene direction closely.
 
-- more than one meaningfully different direction is plausible;
-- the decision matters to events, relationships, knowledge, risk, or future possibility;
-- the listener has enough context to choose;
-- the scene has reached a natural decision point.
+Higher interaction does not mean constant micro-decisions.
 
-A useful choice normally contains two to four distinct options.
+When yielding agency, use an open hand-off by default. Prefer a natural question such as “What does Maximilian do?” over an artificial menu. Two-to-four-option suggestions may be offered when the user requests help, appears stuck, or the in-world possibilities are genuinely finite, but options are not the normal interaction contract.
 
-The listener may also propose another course of action when the story supports it.
+The listener may always seize protagonist control directly by stating what the protagonist says, does, attempts, intends, or refuses. Apply that explicit intent immediately unless it violates an established boundary or physical impossibility. A one-turn control grab does not alter the stored profile.
 
-Do not reveal hidden consequences in advance. Describe what the character or listener could reasonably understand at the moment of choice.
+Distinguish persistent profile changes, temporary mode changes, and one-turn control grabs. Do not ask the user to classify the change when ordinary language makes the scope clear.
 
-Avoid:
+Do not reveal hidden consequences in advance. Avoid cosmetic choices, repeated micro-decisions, constant command prompts, fake options, and presenting a decision after its outcome is fixed.
 
-- cosmetic choices whose outcomes are effectively identical;
-- repeated micro-decisions;
-- constant “What do you do?” prompts;
-- choices that merely guess the narrator’s preferred answer;
-- options that secretly punish reasonable interpretation;
-- presenting a choice after its outcome has already been decided.
-
-> Interaction is punctuation, not the sentence.
+> Interaction level is explicit. User override is always available.
 
 ## Applying choices and consequences
 
@@ -337,6 +342,16 @@ Ordinary atmosphere and disposable detail may remain prose.
 
 > Preserve what the future must remember.
 
+## Runtime deltas and checkpoints
+
+During Live Runtime Mode, preserve newly important truth first as concise runtime deltas when immediate full-record persistence would unnecessarily interrupt narration.
+
+A delta may record a consequential action, revelation, relationship change, commitment, condition, or unresolved thread. Do not duplicate full narration.
+
+Consolidate pending deltas into authoritative state and history at checkpoints such as the required first opening checkpoint, end of scene, meaningful location/situation change, major revelation/commitment, session pause/end, provider handoff, foreseeable context-loss risk, explicit user request, or enough accumulated changes that delaying consolidation would increase continuity risk.
+
+Mandatory persistence rules still apply. If a dormant fact becomes relevant and the Runtime Packet cannot resolve it confidently, consult the authoritative Story Pack, refresh active context, and return to Live Runtime Mode.
+
 ## Initializing persistent continuity
 
 For a persistent new run, the runtime MUST prepare both `STATE.md` and `HISTORY.md`, or identifiable equivalents, at the first natural pause in the opening scene, including a listener-choice pause. Do not wait for complexity or several scenes. If the user pauses, ends the session, or requests handoff earlier, prepare the pair from what has actually been narrated so far. Save them at the first agreed checkpoint.
@@ -389,16 +404,17 @@ It need not reproduce every line of narration.
 
 The persistence instructions below apply to persistent runs. In explicitly selected temporary-conversation mode, preserve relevant continuity within available context without requiring durable saves or exports. Other truth, knowledge, and run-isolation rules still apply.
 
-Update the authoritative Story Pack after:
+Capture important continuity when it occurs, including after:
 
-- a meaningful listener choice;
+- a meaningful listener choice or explicit protagonist action;
 - a major revelation;
 - a lasting state change;
 - a significant off-screen development;
+- a persistent Story Run Profile change;
 - the end of a scene or session when continuity has changed;
 - any point where context may otherwise be lost.
 
-Persistence may be immediate or batched at a natural pause, but the runtime must not knowingly leave important continuity only in temporary context.
+During Live Runtime Mode this capture may begin as a runtime delta. Persistence to authoritative state/history may be immediate or batched at a natural checkpoint, but important continuity must not knowingly remain only in temporary context when a due checkpoint requires saving.
 
 If the runtime cannot write to the Story Pack directly, it must provide a clear continuation update that can be saved in the authoritative home. It should distinguish current state from historical events and avoid exposing narrator-only knowledge to the listener when doing so.
 
@@ -540,16 +556,18 @@ The listener should experience a living story, not the maintenance of a story en
 
 A Story Run follows this general lifecycle:
 
-1. load the framework rules, Story Pack, and environment definition;
+1. load the required framework rules, Story Pack, environment definition, and effective Story Run Profile;
 2. identify whether the run is new or continuing;
-3. verify operational readiness and reconstruct the valid truth and immediate situation;
-4. narrate freely within those constraints;
-5. allow characters and the wider world to act;
-6. offer a meaningful choice when the story reaches one;
-7. apply the choice and its consequences;
-8. preserve newly important truth;
-9. continue until a natural session boundary;
-10. resume later from the persisted run.
+3. verify operational readiness and reconstruct valid truth and the immediate situation;
+4. build or refresh the derived Runtime Packet;
+5. enter Live Runtime Mode;
+6. narrate using compact active context, allowing characters and the wider world to act;
+7. yield protagonist agency according to the interaction profile while honoring explicit user override;
+8. capture consequential new truth as concise runtime deltas;
+9. consolidate deltas at appropriate checkpoints and persist according to the environment;
+10. escalate to authoritative context only when active context is insufficient, then refresh the packet;
+11. continue until a natural session boundary;
+12. resume later by reconstructing active runtime context from persisted authority.
 
 The lifecycle is recursive. Each continuation begins from what the run has made true.
 
@@ -563,6 +581,6 @@ The lifecycle is recursive. Each continuation begins from what the run has made 
 
 > **Characters act from their own reality, not from the narrator’s complete knowledge.**
 
-> **Choices should be rare enough to matter and consequential enough to remember.**
+> **Interaction frequency follows the Story Run Profile; every hand-off should still be meaningful enough to matter.**
 
 > **Every Story Run must remain truthful to its own history.**
