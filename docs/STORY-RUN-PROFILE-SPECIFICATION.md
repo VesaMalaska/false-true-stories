@@ -22,16 +22,18 @@ The initial profile contains three independent dimensions.
 
 ### Interaction
 
-Interaction controls how often the narrator deliberately yields protagonist agency to the listener.
+Interaction controls the balance of narrator initiative and listener ownership of protagonist decisions. It determines both when the narrator yields and which voluntary protagonist actions the narrator may author.
 
 Valid values:
 
 - **story** — narrator normally carries events forward. Explicit hand-offs are reserved mainly for major character-defining or direction-changing moments.
 - **balanced** — narrator maintains momentum while yielding at meaningful decisions often enough for the listener to shape the run. This is the default.
-- **player** — narrator yields protagonist actions, dialogue, investigation, tactics, and other meaningful agency frequently.
-- **director** — the listener may actively direct protagonist behavior and broader scene direction, approaching collaborative role-play or storytelling.
+- **player** — the listener owns the protagonist's voluntary actions, dialogue, intentions, and decisions. The narrator controls the world, NPCs, circumstances, and outcomes, and yields before choosing consequential protagonist behavior.
+- **director** — the listener retains player-mode protagonist ownership and may additionally shape broader scene direction in collaborative storytelling. Proposed world changes remain subject to established canon and boundaries.
 
-Higher interaction does not authorize trivial interruptions or constant menu prompts.
+In **story** and **balanced** modes the narrator may author reasonable protagonist behavior to maintain momentum, subject to explicit listener override and established characterization. In **player** and **director** modes it MUST NOT invent voluntary protagonist speech, actions, intentions, feelings, or decisions on the listener's behalf. Uncontrolled sensations, involuntary reactions, and consequences of attempted actions may still be described without assigning intent.
+
+Higher interaction does not authorize trivial interruptions or constant menu prompts. These modes do not change the separate pacing or detail settings.
 
 ### Pacing
 
@@ -107,6 +109,22 @@ Example:
 > Max stays relaxed, sits back down, and tells Keller plainly that he never signed the release.
 
 The narrator must not replace that action with a different preferred response.
+
+### Player and director boundaries
+
+In `player` and `director` interaction:
+
+- The listener decides what the protagonist attempts, says, chooses, intends, or refuses; the narrator decides how the world responds. Declaring an attempt does not guarantee success.
+- The narrator MAY describe sensory experience, involuntary physical reactions, NPC actions, environmental changes, and consequences consistent with established truth. It MUST NOT use those descriptions to smuggle in voluntary choices or unchosen emotions.
+- The narrator MAY summarize uneventful time and routine background activity without deciding an unresolved meaningful action for the protagonist. If progress requires a voluntary choice, stop at that boundary.
+- At an imminent irreversible or materially consequential protagonist decision, the narrator MUST stop before the action and offer an open hand-off. Do not narrate the action and then ask whether the listener agrees.
+- In `director`, listener suggestions about wider scenes are collaborative proposals, not permission to contradict protected mysteries, NPC knowledge, established history, or world boundaries. The narrator still owns the independent behavior of NPCs.
+
+### Attempts and outcome resolution
+
+The listener specifies an attempted action, not its guaranteed result. Resolve uncertainty through the protagonist's established capabilities, available information, physical circumstances, NPC interests, and world constraints. Success, failure, partial success, and resulting complications should be plausible and consequential. Do not make every attempt succeed or invent arbitrary failure to force a plot. This contract does not prescribe attributes, dice, or an external action-resolution engine.
+
+For example, if the listener says “Wez tries to disarm the guard,” narrate the guard's response and a plausible outcome; do not assume that Wez succeeds merely because he tried.
 
 ## Runtime changes
 
@@ -192,6 +210,7 @@ A runtime may use different internal representations, but it must preserve:
 - the defined dimensions;
 - the defined defaults;
 - open hand-offs as the normal style;
+- the distinction between narrator initiative in story/balanced and listener ownership in player/director;
 - explicit user protagonist override;
 - conversational changes;
 - separation of persistent, temporary, and one-turn changes.
