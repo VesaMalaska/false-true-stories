@@ -262,25 +262,47 @@ A revelation should fit what was already true, even when it changes how earlier 
 
 ## Interaction and protagonist agency
 
-Follow the selected run's interaction level from [STORY-RUN-PROFILE-SPECIFICATION.md](STORY-RUN-PROFILE-SPECIFICATION.md).
+Follow the selected run's interaction level and ownership rules from [STORY-RUN-PROFILE-SPECIFICATION.md](STORY-RUN-PROFILE-SPECIFICATION.md).
 
-- **story:** narrator normally carries events forward and yields mainly at major character-defining decisions;
-- **balanced:** narrator maintains momentum while yielding at meaningful moments; this is the default;
-- **player:** narrator yields protagonist actions, dialogue, investigation, and tactics more frequently;
-- **director:** listener may direct the protagonist and broader scene direction closely.
+- **story:** narrator normally carries the protagonist forward and yields mainly at major character-defining decisions;
+- **balanced:** narrator maintains momentum, may author fitting protagonist behavior, and yields at meaningful moments; this is the default;
+- **player:** listener exclusively decides the protagonist's voluntary actions, speech, intentions, and choices; narrator portrays the world, NPCs, and results;
+- **director:** player-mode protagonist ownership remains in force, with additional listener input into broader scene direction, subject to canon and boundaries.
 
-Higher interaction does not mean constant micro-decisions.
+Higher interaction does not mean constant micro-decisions. Pacing and descriptive detail remain separate settings.
+
+### Live hand-offs and stopping boundaries
 
 When yielding agency, use an open hand-off by default. Prefer a natural question such as “What does Maximilian do?” over an artificial menu. Two-to-four-option suggestions may be offered when the user requests help, appears stuck, or the in-world possibilities are genuinely finite, but options are not the normal interaction contract.
 
+In `player` and `director` modes, stop *before* a meaningful voluntary protagonist decision, not after narrating it. In particular, do not invent the protagonist's answer to an NPC, decision to trust or attack someone, choice of an investigative lead, or response to an imminent danger. Present what happens around the protagonist and leave the next intentional response open. Do not write paragraphs of protagonist decisions and then offer a retroactive choice.
+
+Ordinary scene transitions, uneventful time passage, sensory details, involuntary reactions, and NPC actions may proceed without a hand-off, as long as they do not conceal an unresolved protagonist decision. The narrator must keep the world moving rather than pause for permission at every footstep.
+
+In `story` and `balanced` modes, the narrator may make reasonable protagonist decisions consistent with established characterization but MUST yield when the listener intervenes. All modes must respect a requested hand-off and refrain from preempting an explicit pending listener decision.
+
+### Player attempts and world outcomes
+
 The listener may always seize protagonist control directly by stating what the protagonist says, does, attempts, intends, or refuses. Apply that explicit intent immediately unless it violates an established boundary or physical impossibility. A one-turn control grab does not alter the stored profile.
+
+Interpret a declared attempt as intent, not automatic success. Resolve outcomes from established capabilities, circumstances, NPC motives, known constraints, and prior events. Plausible success, failure, partial success, and complications are all allowed; avoid guaranteed success, arbitrary punishment, and plot-preserving intervention. No numerical attributes, dice, or separate resolution system are required by this protocol.
+
+The narrator can describe pain, surprise, or other involuntary experiences but cannot assign voluntary decisions or unchosen internal feelings in `player` and `director` modes. NPCs retain their own knowledge, goals, and agency, even when the listener has director-level influence.
 
 Distinguish persistent profile changes, temporary mode changes, and one-turn control grabs. Do not ask the user to classify the change when ordinary language makes the scope clear.
 
 Do not reveal hidden consequences in advance. Avoid cosmetic choices, repeated micro-decisions, constant command prompts, fake options, and presenting a decision after its outcome is fixed.
 
-> Interaction level is explicit. User override is always available.
+### Behavioral examples
 
+- **Player-mode dialogue:** A witness says “Trust me.” The narrator describes her expression and circumstances, then waits; it does not make the protagonist agree, flirt, or walk away.
+- **Player-mode danger:** Two armed men block a hotel exit. The narrator describes their advance and any immediate consequences, stopping before deciding whether the protagonist fights, flees, or speaks.
+- **Declared action:** “I try to grab the revolver.” The narrator resolves the attempt from distance, timing, opposition, and physical conditions; success is not assumed.
+- **Natural progression:** A quiet journey may be compressed without asking for permission at every turn, provided no meaningful protagonist decision is skipped.
+- **Temporary handoff:** “Narrate for a while; I'll just listen” permits story-like narrator initiative for the agreed scope without overwriting the stored `player` baseline.
+- **Director mode:** “Could we have a gang lieutenant arrive?” is a proposal that may be integrated consistently, not authorization to rewrite a protected murder solution.
+
+> Interaction level is explicit. Player and director modes reserve voluntary protagonist decisions for the listener. User override is always available.
 ## Applying choices and consequences
 
 After the listener chooses:
