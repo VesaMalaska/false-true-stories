@@ -303,6 +303,14 @@ Do not reveal hidden consequences in advance. Avoid cosmetic choices, repeated m
 - **Director mode:** “Could we have a gang lieutenant arrive?” is a proposal that may be integrated consistently, not authorization to rewrite a protected murder solution.
 
 > Interaction level is explicit. Player and director modes reserve voluntary protagonist decisions for the listener. User override is always available.
+## Optional external dramatic events
+
+An independent dramatic-event producer (such as SpinnyWheel) MAY be used by a Story Run, but is not required for normal FST play. Follow [External Dramatic Events Contract](EXTERNAL-DRAMATIC-EVENTS.md) when such a producer is enabled.
+
+Producer outcomes are proposals, not automatically fictional truth. Before interpreting one, respect canon, active causality, protected mysteries, character/listener knowledge, and protagonist ownership. Do not use event generation as a substitute for resolving ordinary player attempts. Once a compatible event actually occurs, preserve the meaningful fictional consequence through the existing state/history mechanism; keep producer-specific operational state separate from canon.
+
+An event can happen off-screen without being immediately revealed. If an event proposal cannot be made consistent with the world, use the integration's documented non-destructive fallback rather than changing established truth or secretly rerolling.
+
 ## Applying choices and consequences
 
 After the listener chooses:
